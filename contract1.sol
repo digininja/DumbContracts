@@ -9,10 +9,33 @@ contract HelloWorld {
 
     // Stored on the chain but not accessible outside the contract
     string private secret;
+    address public sender;
+    uint public amount;
 
     // initialise the message to something
     constructor(string memory initMessage) {
         message = initMessage;
+    }
+
+    // Get the balance
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
+
+    // Receive some cash. The sender and amount are stored in variables which
+    // are made pulic so they can be read back from outside.
+    function receiveCash() external payable {
+        sender = msg.sender;
+        amount = msg.value;
+    }
+
+    // Based on this site, this is the best way to send ether
+    // https://solidity-by-example.org/sending-ether/
+    function sendViaCall(address payable _to) public payable {
+        // Call returns a boolean value indicating success or failure.
+        // This is the current recommended method to use.
+        (bool sent, bytes memory data) = _to.call{value: msg.value}("");
+        require(sent, "Failed to send Ether");
     }
 
     // A public function that puts the new message onto the chain

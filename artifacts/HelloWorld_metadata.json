@@ -18,6 +18,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "amount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "externalGetSecret",
 				"outputs": [
 					{
@@ -31,12 +44,58 @@
 			},
 			{
 				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "message",
 				"outputs": [
 					{
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiveCash",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "sendViaCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sender",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -84,11 +143,11 @@
 	},
 	"sources": {
 		"contract1.sol": {
-			"keccak256": "0x043a75d540579f6facca24efdf06723f037707c7b0f7ec9481641a7f3a0b2a0f",
+			"keccak256": "0x59d4de8a8ecff7de08845090ddbfdccdb3a1fcafad9d06c4cf6b903c46074b90",
 			"license": "GPL-3.0-only",
 			"urls": [
-				"bzz-raw://5fc92c0b4a82749ca7cc0dc2c75f66aa1052c78dcfa3f9cf9fba3edae1e193d0",
-				"dweb:/ipfs/QmUXT8HtjxQE1KrTaKpPnsEEkqgZ3Duw8QGhN31mft8Xqe"
+				"bzz-raw://962fe451e2e35a174c38d8b154c42ccae57e71ef842512182d063c891701cc93",
+				"dweb:/ipfs/QmWUkGWzQCmy9pFGdL7hjKniijyXKf7iKggMpGC4hDXCmM"
 			]
 		}
 	},
