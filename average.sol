@@ -9,8 +9,7 @@ contract AverageIt {
 
     uint256 value;
 
-    constructor (uint256 _p) {
-        value = _p;
+    constructor () {
     }
 
     // Get the balance
@@ -19,7 +18,11 @@ contract AverageIt {
     }
 
     function startLoop (address payable _to, uint _amount) public payable {
-        this.sendCash(_to, _amount);
+ //       this.sendCash(_to, _amount);
+    }
+
+    // Inject some cash.
+    function injectCash() external payable {
     }
 
     // Receive some cash. The sender and amount are stored in variables which
@@ -28,7 +31,7 @@ contract AverageIt {
         sender = msg.sender;
         amount = msg.value;
         // return all bar 1 unit
-        if (msg.value < 50) {
+        if (this.getBalance() > 1) {
             this.sendCash(payable (sender), amount - 1);
         }
     }
