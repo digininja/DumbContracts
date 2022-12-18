@@ -81,6 +81,11 @@
 						"internalType": "address payable",
 						"name": "_to",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
 					}
 				],
 				"name": "sendViaCall",
@@ -143,11 +148,11 @@
 	},
 	"sources": {
 		"contract1.sol": {
-			"keccak256": "0x59d4de8a8ecff7de08845090ddbfdccdb3a1fcafad9d06c4cf6b903c46074b90",
+			"keccak256": "0xbd07f051ac4ad5b979f28fea7580d01f736d0f868cf20513cc0155623b7e09de",
 			"license": "GPL-3.0-only",
 			"urls": [
-				"bzz-raw://962fe451e2e35a174c38d8b154c42ccae57e71ef842512182d063c891701cc93",
-				"dweb:/ipfs/QmWUkGWzQCmy9pFGdL7hjKniijyXKf7iKggMpGC4hDXCmM"
+				"bzz-raw://124f7a6837fc2f35e34fd8a5cbdad41676a3d928bd593c586b343245438f234a",
+				"dweb:/ipfs/QmQ6AU6Gq7FrxuMZpH2bmzgD5nPebyNug3aKhpGDwP6AFm"
 			]
 		}
 	},

@@ -31,10 +31,10 @@ contract HelloWorld {
 
     // Based on this site, this is the best way to send ether
     // https://solidity-by-example.org/sending-ether/
-    function sendViaCall(address payable _to) public payable {
+    function sendViaCall(address payable _to, uint _amount) public payable {
         // Call returns a boolean value indicating success or failure.
         // This is the current recommended method to use.
-        (bool sent, bytes memory data) = _to.call{value: msg.value}("");
+        (bool sent, bytes memory data) = _to.call{value: _amount}("");
         require(sent, "Failed to send Ether");
     }
 
