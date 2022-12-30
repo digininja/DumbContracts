@@ -2,6 +2,10 @@
 
 Learning and playing with Ethereum Smart Contracts
 
+## Setup
+
+Make sure to start `ganache` in a background terminal to act as our blockchain.
+
 ## Useful links
 
 [A good video on setting up VS Code][vscodelink]
