@@ -12,6 +12,9 @@ contract CallMe {
 
     function setB(uint _b) public returns (uint) {
         b = _b;
+        if (b < 100) {
+            revert("Not enough, I want more");
+        }
         return b;
     }
 

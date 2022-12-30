@@ -57,14 +57,22 @@ contract MakeCall {
 
     // Trying to work out how to make a call without the definition.
     function setA_Signature(uint _val) public returns(bool success){
-//        (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
-        (bool sent,) =  dcNoABI.call(abi.encodeWithSignature("setA(uint)", _val));
-        return sent;
+        // This is the shorter way to do this
+        // (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint256)", _val));
+
+        // The longer way, generate and store the payload
+        bytes memory payload;
+        // The parameter is uint256, not just uint, that is very important.
+        payload = abi.encodeWithSignature("setA(uint256)", _val);
+        // Then pass it.
+        (bool sent,) =  dcNoABI.call(payload);
+        require(sent, "Call failed");
+        return true;
     }
     // Trying to work out how to make a call without the definition.
     function setB_Signature(uint _val) public returns(bool success){
 //        (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
-        (bool sent,) =  dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
+        (bool sent,) =  dcNoABI.call(abi.encodeWithSignature("setB(uint256)", _val));
         return sent;
     }
 }
