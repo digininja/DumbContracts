@@ -29,6 +29,8 @@ contract HelloWorld {
         amount = msg.value;
     }
 
+    // Three ways to send cash, this covers
+
     // Based on this site, this is the best way to send ether
     // https://solidity-by-example.org/sending-ether/
     function sendViaCall(address payable _to, uint _amount) public payable {

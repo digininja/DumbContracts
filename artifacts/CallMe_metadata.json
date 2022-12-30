@@ -6,96 +6,67 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "a",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "b",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_p",
+						"name": "_a",
+						"type": "uint256"
+					}
+				],
+				"name": "setA",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
 						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "amount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "receiveCash",
-				"outputs": [],
-				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "address payable",
-						"name": "_to",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "_amount",
+						"name": "_b",
 						"type": "uint256"
 					}
 				],
-				"name": "sendCash",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "sender",
+				"name": "setB",
 				"outputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "_to",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "_amount",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "startLoop",
-				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -112,7 +83,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"average.sol": "AverageIt"
+			"calling.sol": "CallMe"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -126,12 +97,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"average.sol": {
-			"keccak256": "0x291d6356db4c2694b442b36a74167d20ec5089b36bbfd6539dcca8474582df84",
+		"calling.sol": {
+			"keccak256": "0xbda21932388eb18930793c6922e630f6789b9f74a271b73cad7cded445922393",
 			"license": "GPL-3.0-only",
 			"urls": [
-				"bzz-raw://98176713c1076f9d506b17b95342c0226edd64d1dc666cae72503470b9ac82e3",
-				"dweb:/ipfs/QmZyyKgBb79m6qH2Z8JCCJJDYPCxKvhpJLBibWwMyVzshx"
+				"bzz-raw://08e54e620d918293c45631e0ff1542d06a67ec4b1e7fc3a4884ebf2b266d3a81",
+				"dweb:/ipfs/QmSdfqMQb9fc4kfGRTKdLK11AJTwVeXz4YmFnv1ARAfMnT"
 			]
 		}
 	},
