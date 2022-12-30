@@ -15,12 +15,12 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "b",
+				"name": "c",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -28,7 +28,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -54,11 +54,11 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_b",
+						"name": "_c",
 						"type": "uint256"
 					}
 				],
-				"name": "setB",
+				"name": "setC",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -83,7 +83,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"calling.sol": "CallMe"
+			"makecall.sol": "CallMe"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -97,12 +97,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"calling.sol": {
-			"keccak256": "0xbda21932388eb18930793c6922e630f6789b9f74a271b73cad7cded445922393",
+		"makecall.sol": {
+			"keccak256": "0x73fdde85e49808c83152421fbd5193e18ab239e546b85d5af93c48343f24a14e",
 			"license": "GPL-3.0-only",
 			"urls": [
-				"bzz-raw://08e54e620d918293c45631e0ff1542d06a67ec4b1e7fc3a4884ebf2b266d3a81",
-				"dweb:/ipfs/QmSdfqMQb9fc4kfGRTKdLK11AJTwVeXz4YmFnv1ARAfMnT"
+				"bzz-raw://02be386a1919c0d36b13b9c51605fda92981a937b64979a71e7d70a59bb1a411",
+				"dweb:/ipfs/QmXuDa9v1S3VddZY3r1pQ1g3tw99fBLZ5GwRHRaSe5hdkJ"
 			]
 		}
 	},

@@ -55,18 +55,16 @@ contract MakeCall {
         return _val;
     }
 
-    function setB_Signature(uint _val) public returns(bool success){
-        (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
-
-        return true;
+    // Trying to work out how to make a call without the definition.
+    function setA_Signature(uint _val) public returns(bool success){
+//        (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
+        (bool sent,) =  dcNoABI.call(abi.encodeWithSignature("setA(uint)", _val));
+        return sent;
     }
-
-}
-
-
-contract test3 {       
-    address watch_addr = address(0x1245689);
-    function register(string memory _text) public {
-        watch_addr.call(abi.encodeWithSignature("register(string)", _text));
+    // Trying to work out how to make a call without the definition.
+    function setB_Signature(uint _val) public returns(bool success){
+//        (bool sent, bytes memory data) = dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
+        (bool sent,) =  dcNoABI.call(abi.encodeWithSignature("setB(uint)", _val));
+        return sent;
     }
 }

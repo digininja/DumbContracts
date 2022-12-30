@@ -71,6 +71,25 @@
 						"type": "uint256"
 					}
 				],
+				"name": "setA_Signature",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_val",
+						"type": "uint256"
+					}
+				],
 				"name": "setB_Signature",
 				"outputs": [
 					{
@@ -130,11 +149,11 @@
 	},
 	"sources": {
 		"makecall.sol": {
-			"keccak256": "0xeca5396d6676171217e5bbcc8dfdb0e1be3d8ad180e06dedd33381b2cdac47fb",
+			"keccak256": "0x73fdde85e49808c83152421fbd5193e18ab239e546b85d5af93c48343f24a14e",
 			"license": "GPL-3.0-only",
 			"urls": [
-				"bzz-raw://0fef564a9be5c58f1767bbf9e4de3b6f155f0b4078f9d12ca2157f64a16b80d2",
-				"dweb:/ipfs/Qmc4PJXVY3HTQRQGociw4DuayXQwiqs96wh3XCmcF3dkQK"
+				"bzz-raw://02be386a1919c0d36b13b9c51605fda92981a937b64979a71e7d70a59bb1a411",
+				"dweb:/ipfs/QmXuDa9v1S3VddZY3r1pQ1g3tw99fBLZ5GwRHRaSe5hdkJ"
 			]
 		}
 	},
