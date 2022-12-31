@@ -18,6 +18,89 @@ truffle create contract Inbox
 truffle create test Inbox
 ```
 
+Some notes say to use `truffle unbox` instead.
+
+Compile a project:
+
+```bash
+truffle compile
+```
+
+Modify the `truffle-config.js` file to point at ganache.
+
+```json
+development: {
+    host: "127.0.0.1",     // Localhost (default: none)
+    port: 8545,            // Standard Ethereum port (default: none)
+    network_id: "*",       // Any network (default: none)
+}
+```
+
+Check the migrations file `migrations/1_deploy.js`
+
+```js
+const Inbox = artifacts.require("Inbox");
+
+module.exports = function(deployer) {
+  // The contract name followed by parameters to the constructor.
+  deployer.deploy(Inbox, "Message 1");
+};
+```
+
+To get into the truffle console:
+
+```bash
+truffle develop
+```
+
+Migrate / deploy the contract then do stuff with it:
+
+```
+truffle(develop)> migrate
+
+...
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.001666143 ETH
+
+truffle(develop)> let instance = await Inbox.deployed()
+undefined
+truffle(develop)> let inbox = instance.getMessage()
+undefined
+truffle(develop)> instance.setMessage("aaa")
+{
+  tx: '0x47d229d7b827f2d603a181b6b6983dc7d008a53650835ab985789466bee39fb0',
+  receipt: {
+    transactionHash: '0x47d229d7b827f2d603a181b6b6983dc7d008a53650835ab985789466bee39fb0',
+    transactionIndex: 0,
+    blockNumber: 2,
+    blockHash: '0xfb3c931d5a9733d954f22203178d4ac064c79428a26abe0f5dec845d8767a6a4',
+    from: '0xc9cf96433173a4741e706704679aa93e9c605a58',
+    to: '0xc1462c4a0efea0c29468729dd00c903018ebb3da',
+    cumulativeGasUsed: 28050,
+    gasUsed: 28050,
+    contractAddress: null,
+    logs: [],
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00',
+    status: true,
+    effectiveGasPrice: 3281690333,
+    type: '0x2',
+    rawLogs: []
+  },
+  logs: []
+}
+
+truffle(develop)> instance.getMessage()
+'aaa'
+```
+
+[Some useful stuff here][developDeploy]
+
 ## Decompile
 
 ### Tools
@@ -54,3 +137,4 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [dedaub]: https://library.dedaub.com/decompile
 [ethervm]: https://ethervm.io/decompile
 [rev1]: https://ethereum.org/en/developers/tutorials/reverse-engineering-a-contract/
+[developDeploy]: https://blog.logrocket.com/truffle-suite-tutorial-develop-ethereum-smart-contracts/
