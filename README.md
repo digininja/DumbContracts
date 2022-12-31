@@ -6,6 +6,30 @@ Learning and playing with Ethereum Smart Contracts
 
 Make sure to start `ganache` in a background terminal to act as our blockchain.
 
+## Truffle
+
+Make a directory for the code. The project will be a basic inbox.
+
+```bash
+mkdir inboxProject
+cd inboxProject
+truffle init
+truffle create contract Inbox
+truffle create test Inbox
+```
+
+## Decompile
+
+### Tools
+
+* [Panoramix][panoramix]
+* [dedaub][dedaub]
+* [ethervm][ethervm]
+
+### Tutorials
+
+* [REVERSE ENGINEERING A CONTRACT][rev1]
+
 ## Useful links
 
 [A good video on setting up VS Code][vscodelink]
@@ -26,3 +50,7 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [calling]: https://medium.com/@blockchain101/calling-the-function-of-another-contract-in-solidity-f9edfa921f4c
 [videoEncoding]: https://www.youtube.com/watch?v=70_2YHJvKIc
 [videoDecompileWorkshop]: https://archive.devcon.org/archive/watch/5/the-inner-workings-of-a-smart-contract-decompiler/?tab=YouTube
+[panoramix]: https://github.com/palkeo/panoramix
+[dedaub]: https://library.dedaub.com/decompile
+[ethervm]: https://ethervm.io/decompile
+[rev1]: https://ethereum.org/en/developers/tutorials/reverse-engineering-a-contract/
