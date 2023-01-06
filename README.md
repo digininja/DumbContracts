@@ -109,6 +109,21 @@ truffle(develop)> instance.getMessage()
 * [dedaub][dedaub]
 * [ethervm][ethervm]
 
+### Install
+
+Install latest version of NodeJS:
+
+```
+curl -sL https://deb.nodesource.com/setup_19.x -o /tmp/nodesource_setup.sh
+sudo bash /tmp/nodesource_setup.sh
+```
+
+Now install Ganache and Truffle
+
+```
+sudo npm install -g ganache truffle
+```
+
 ### Tutorials
 
 * [REVERSE ENGINEERING A CONTRACT][rev1]
