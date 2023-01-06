@@ -99,6 +99,10 @@ truffle(develop)> instance.getMessage()
 'aaa'
 ```
 
+Trying to work out how to access a contract by address from inside truffle. Using require looks promising but can't make it work.
+
+[https://ethereum.stackexchange.com/questions/45305/truffle-develop-get-new-contract-instance-from-contract-address]
+
 [Some useful stuff here][developDeploy]
 
 ## Decompile
