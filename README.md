@@ -28,7 +28,7 @@ truffle compile
 
 Modify the `truffle-config.js` file to point at ganache.
 
-```json
+```js
 development: {
     host: "127.0.0.1",     // Localhost (default: none)
     port: 8545,            // Standard Ethereum port (default: none)
@@ -124,6 +124,10 @@ Now install Ganache and Truffle
 sudo npm install -g ganache truffle
 ```
 
+Vim Plugin
+
+[vim-solidity][vimsolidity]
+
 ### Tutorials
 
 * [REVERSE ENGINEERING A CONTRACT][rev1]
@@ -153,3 +157,4 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [ethervm]: https://ethervm.io/decompile
 [rev1]: https://ethereum.org/en/developers/tutorials/reverse-engineering-a-contract/
 [developDeploy]: https://blog.logrocket.com/truffle-suite-tutorial-develop-ethereum-smart-contracts/
+[vimsolidity]: https://github.com/tomlion/vim-solidity
