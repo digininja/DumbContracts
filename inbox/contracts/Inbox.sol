@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-// This is quite basic and might be good for playing with
-// when I look at decompilation.
-
 contract Inbox {
     string public message;
- 
+ 	uint public pageSize;
+
     constructor(string memory _initialMessage) {
         message = _initialMessage;
     }
@@ -18,4 +16,9 @@ contract Inbox {
     function getMessage() public view returns (string memory) {
         return message;
     }
+
+	function setPageSize(uint _size) public returns (uint) {
+		pageSize = _size;
+		return pageSize;
+	}
 }

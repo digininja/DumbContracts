@@ -3,12 +3,29 @@
 pragma solidity ^0.8.13;
 
 import "./ConvertLib.sol";
+import "./Inbox.sol";
+import "./Calling.sol";
 
 // This is just a simple example of a coin-like contract.
 // It is not ERC20 compatible and cannot be expected to talk to other
 // coin/token contracts.
 
 contract MetaCoin {
+	// An instance of the inbox
+    Inbox anInbox;
+
+    CallMe dc;
+
+    // We pass the address of the contract in here.
+    function ExistingCall(address _t) public {
+        dc = CallMe(_t);
+    }
+ 
+    // We pass the address of the contract in here.
+    function Existing(address _t) public {
+        anInbox = Inbox(_t);
+    }
+ 
 	mapping (address => uint) balances;
 	mapping (uint => uint) mappings;
 
@@ -41,4 +58,26 @@ contract MetaCoin {
 		// No error is thrown.
 		return mappings[key];
 	}
+	
+	function getMessage() public view returns (string memory){
+		return anInbox.getMessage();
+	}
+
+	function setMessage(string memory _message) public {
+		anInbox.setMessage(_message);
+	}
+
+	function setPageSize() public returns(uint result) {
+		return anInbox.setPageSize(22);
+	}
+
+    // Call a() on the dc contract.
+    function getA() public view returns (uint result) {
+        return dc.a();
+    }
+    
+    function setA(uint _val) public returns (uint result) {
+        dc.setA(_val);
+        return _val;
+    }
 }
