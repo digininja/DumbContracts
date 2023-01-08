@@ -6,13 +6,19 @@ Compile
 truffle compile
 ```
 
-Migrate onto the blockchain
+Migrate onto the blockchain if running ganache on the command line:
 
 ```
 truffle migrate
 ```
 
-Interact with it
+If using the appimage. The network name is defined in the `truffle-config.js` file.
+
+```
+truffle migrate  --network appimage 
+```
+
+Interact with it:
 
 ```
 truffle console
