@@ -11,6 +11,9 @@ import "./Calling.sol";
 // coin/token contracts.
 
 contract MetaCoin {
+	// The address that deployed this contract
+	address public contractOwner;
+
 	// An instance of the inbox
     Inbox anInbox;
 
@@ -32,6 +35,9 @@ contract MetaCoin {
 	event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
 	constructor() {
+		// Log who deployed (owns) this contract
+		contractOwner = msg.sender;
+
 		balances[tx.origin] = 10000;
 		mappings[23] = 6;
 		mappings[26] = 3;
@@ -80,4 +86,21 @@ contract MetaCoin {
         dc.setA(_val);
         return _val;
     }
+
+	function sendCashToThisContract() public payable {}
+
+	function getThisContractBalance() public view returns (uint) {
+		return(address(this).balance);
+	}
+
+	function withdrawAllInsecure(address payable _to) public {
+		_to.transfer(address(this).balance);
+	}
+	function withdrawAll(address payable _to) public {
+		require(contractOwner == _to);
+		_to.transfer(address(this).balance);
+	}
+
+	// payable fallback to receive and store ETH
+	fallback() external { }
 }
