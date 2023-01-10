@@ -68,3 +68,41 @@ truffle(development)> coin.setMessage("aaaasssss")
   logs: []
 }
 ```
+
+## Sending Ether
+
+Note that the amount of ETH to send has to be a string not an integer.
+
+For this to work, the recipient has to have a receive() function.
+
+```
+w = web3.utils.toWei("1","ether")
+coin.send(w)
+```
+
+To send the same amount of ETH to a payable function, you pass the ETH as the last parameter.
+
+```
+coin.sendCashToThisContract({value: w})
+```
+
+There are four parameters you can add when sending the ETH. `gas` and `gasPrice` have minimum values set by the EVM.
+
+```
+coin.sendCashToThisContract({value: w, from: accounts[1], gasPrice: "140970877", gas: "1000000"})
+```
+
+
+Get the balance of the contract:
+
+```
+balance = await web3.eth.getBalance(coin1.address)
+```
+
+Get the balance of one of the 10 built in accounts:
+
+```
+balance = await web3.eth.getBalance(accounts[0])
+```
+
+

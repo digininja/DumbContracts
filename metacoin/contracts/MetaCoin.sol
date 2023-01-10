@@ -101,6 +101,18 @@ contract MetaCoin {
 		_to.transfer(address(this).balance);
 	}
 
-	// payable fallback to receive and store ETH
-	fallback() external { }
+	// This function is called for all messages sent to
+	// this contract (there is no other function).
+	// Sending Ether to this contract will cause an exception,
+	// because the fallback function does not have the `payable`
+	// modifier.
+	fallback() external payable {}
+	
+	// This function is called for plain Ether transfers, i.e.
+	// for every call with empty calldata.
+	// Example:
+	// w = web3.utils.toWei("1","ether")
+	// coin.send(w)
+
+	receive() external payable {}
 }

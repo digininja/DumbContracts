@@ -21,4 +21,7 @@ contract Inbox {
 		pageSize = _size;
 		return pageSize;
 	}
+	
+	// payable fallback to receive and store ETH
+	fallback() external { }
 }
