@@ -15,19 +15,19 @@ contract MetaCoin {
 	address public contractOwner;
 
 	// An instance of the inbox
-    Inbox anInbox;
+	Inbox anInbox;
 
-    CallMe dc;
+	CallMe dc;
 
-    // We pass the address of the contract in here.
-    function ExistingCall(address _t) public {
-        dc = CallMe(_t);
-    }
+	// We pass the address of the contract in here.
+	function ExistingCall(address _t) public {
+		dc = CallMe(_t);
+	}
  
-    // We pass the address of the contract in here.
-    function Existing(address _t) public {
-        anInbox = Inbox(_t);
-    }
+	// We pass the address of the contract in here.
+	function Existing(address _t) public {
+		anInbox = Inbox(_t);
+	}
  
 	mapping (address => uint) balances;
 	mapping (uint => uint) mappings;
@@ -77,15 +77,15 @@ contract MetaCoin {
 		return anInbox.setPageSize(22);
 	}
 
-    // Call a() on the dc contract.
-    function getA() public view returns (uint result) {
-        return dc.a();
-    }
-    
-    function setA(uint _val) public returns (uint result) {
-        dc.setA(_val);
-        return _val;
-    }
+	// Call a() on the dc contract.
+	function getA() public view returns (uint result) {
+		return dc.a();
+	}
+
+	function setA(uint _val) public returns (uint result) {
+		dc.setA(_val);
+		return _val;
+	}
 
 	function sendCashToThisContract() public payable {}
 
@@ -97,12 +97,38 @@ contract MetaCoin {
 		_to.transfer(address(this).balance);
 	}
 	function withdrawAll(address payable _to) public {
-		require(contractOwner == _to);
+		require(contractOwner == msg.sender, "Only the owner can authorise a withdrawl");
 		_to.transfer(address(this).balance);
+	}
+
+	// Allow the owner to specify sending cash out of the contract
+	// to someone else
+	function sendEthToOtherContractFromMe(address payable _to, uint _value) public {
+		require(contractOwner == msg.sender, "Only the owner can authorise sending out cash from the wallet");
+		(bool sent, ) = _to.call{value: _value}("");
+		require(sent, "Failed to send Ether");
+	}
+
+	// This is vulnerable as anyone can call it and ask it to send
+	// cash out from the contract's wallet to the _to address.
+	function sendEthToOtherContractFromMeInsecure(address payable _to, uint _value) public {
+		(bool sent, ) = _to.call{value: _value}("");
+		require(sent, "Failed to send Ether");
+	}
+
+	// This takes cash in and sends it straight back out again
+	// to the specified contract. No vulnerability, but it slightly
+	// obscures where the cash is coming from as it uses this contract
+	// as a proxy to the other contract.
+	function sendEthToOtherContract(address payable _to) public payable {
+		// Call returns a boolean value indicating success or failure.
+		(bool sent, bytes memory data) = _to.call{value: msg.value}("");
+		require(sent, "Failed to send Ether");
 	}
 
 	// This function is called for all messages sent to
 	// this contract (there is no other function).
+	// This next bit is comment from example, not sure what it means...
 	// Sending Ether to this contract will cause an exception,
 	// because the fallback function does not have the `payable`
 	// modifier.

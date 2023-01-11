@@ -105,4 +105,41 @@ Get the balance of one of the 10 built in accounts:
 balance = await web3.eth.getBalance(accounts[0])
 ```
 
+Assuming the contract was deployed from a different account, this will try to withdraw all the cash from `0xbb1dbcf9F2Eb17F5C8557562d2602C3867c7C0FD`. This will fail with an error as only the owner can do a withdrawl.
+
+```
+coin.withdrawAll('0xbb1dbcf9F2Eb17F5C8557562d2602C3867c7C0FD', {from:'0xbb1dbcf9F2Eb17F5C8557562d2602C3867c7C0FD'})
+```
+
+This version of the call is insecure and can be called by ayone so will succeed and let the bad account steal all the cash.
+
+```
+coin.withdrawAllInsecure('0xbb1dbcf9F2Eb17F5C8557562d2602C3867c7C0FD', {from:'0xbb1dbcf9F2Eb17F5C8557562d2602C3867c7C0FD'})
+```
+
+Send ETH into my contract and then bounce it straight back out again to the specified address.
+
+```
+coin.sendEthToOtherContract("0x99cB5A1762CD3B68a22a32E1417bFe845A0409Bb", {value:1})
+```
+
+Send ETH from the contract's wallet to the other address. This can only be done by the contract owner.
+
+```
+coin.sendEthToOtherContractFromMe(accounts[2], 1)
+```
+
+This will fail:
+
+```
+coin.sendEthToOtherContractFromMe(accounts[2], 1, {from: accounts[2]})
+```
+
+This version of the call fails to check the owner and so can ask the wallet to send out its own cash to anyone.
+
+```
+coin.sendEthToOtherContractFromMeInsecure(accounts[2], 1, {from: accounts[2]})
+```
+
+
 

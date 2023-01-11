@@ -113,7 +113,7 @@ Trying to work out how to access a contract by address from inside truffle. Usin
 * [dedaub][dedaub]
 * [ethervm][ethervm]
 
-### Install
+## Install
 
 Install latest version of NodeJS:
 
@@ -128,13 +128,14 @@ Now install Ganache and Truffle
 sudo npm install -g ganache truffle
 ```
 
-Vim Plugin
+### Vim Plugin
 
 [vim-solidity][vimsolidity]
 
 ### Tutorials
 
 * [REVERSE ENGINEERING A CONTRACT][rev1]
+* [Debugging Contracts][debug1]
 
 ## Useful links
 
@@ -162,3 +163,4 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [rev1]: https://ethereum.org/en/developers/tutorials/reverse-engineering-a-contract/
 [developDeploy]: https://blog.logrocket.com/truffle-suite-tutorial-develop-ethereum-smart-contracts/
 [vimsolidity]: https://github.com/tomlion/vim-solidity
+[debug1]: https://medium.com/linum-labs/error-vm-exception-while-processing-transaction-revert-8cd856633793
