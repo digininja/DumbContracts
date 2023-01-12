@@ -126,6 +126,30 @@ contract MetaCoin {
 		require(sent, "Failed to send Ether");
 	}
 
+	// Same as above, but also takes a commission for doing the proxy
+	function sendEthProxyComission (address payable _to) public payable {
+		uint valueToSend;
+
+		// We have to make a profit so if they only send 1
+		// tough luck, we keep it.
+		if (msg.value == 1) {
+			valueToSend = 0;
+		// Take 10 if sending over 100
+		} else if (msg.value > 100) {
+			valueToSend = msg.value - 10;
+		// Take 5 if over 50
+		} else if (msg.value > 50) {
+			valueToSend = msg.value - 5;
+		} else {
+			valueToSend = msg.value - 1;
+		}
+
+		if (valueToSend > 0) {
+			(bool sent, bytes memory data) = _to.call{value: valueToSend}("");
+			require(sent, "Failed to send Ether");
+		}
+	}
+
 	// This function is called for all messages sent to
 	// this contract (there is no other function).
 	// This next bit is comment from example, not sure what it means...

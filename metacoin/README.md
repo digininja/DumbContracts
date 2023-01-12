@@ -141,5 +141,3 @@ This version of the call fails to check the owner and so can ask the wallet to s
 coin.sendEthToOtherContractFromMeInsecure(accounts[2], 1, {from: accounts[2]})
 ```
 
-
-
