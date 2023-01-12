@@ -17,21 +17,31 @@ contract MetaCoin {
 	// An instance of the inbox
 	Inbox anInbox;
 
-	CallMe dc;
-
 	// We pass the address of the contract in here.
 	function ExistingCall(address _t) public {
 		dc = CallMe(_t);
 	}
  
+	// An instance of the calling contract
+	CallMe dc;
+
 	// We pass the address of the contract in here.
 	function Existing(address _t) public {
 		anInbox = Inbox(_t);
 	}
- 
+
+	// A really basic value to view through debugger
+	uint myNumber;
+
+	// Part of the original contract.
 	mapping (address => uint) balances;
+
+	// To show that mappings that don't have
+	// an assigned value are still accessible
+	// and come out empty.
 	mapping (uint => uint) mappings;
 
+	// Need to look at this and work out what it does.
 	event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
 	constructor() {
@@ -41,6 +51,8 @@ contract MetaCoin {
 		balances[tx.origin] = 10000;
 		mappings[23] = 6;
 		mappings[26] = 3;
+
+		myNumber = 14;
 	}
 
 	function sendCoin(address receiver, uint amount) public returns(bool sufficient) {
