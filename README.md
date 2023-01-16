@@ -134,6 +134,7 @@ sudo npm install -g ganache truffle
 * [Debugging Contracts][debug1]
 * [A good video on setting up VS Code][vscodelink]
 * [Some example code][byexample]
+* [Flash load code example][aaveflashloan]
 
 Three ways to send cash, [this paper][transfer] talks about them and the security problems with them.
 
@@ -155,4 +156,4 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [vimsolidity]: https://github.com/tomlion/vim-solidity
 [debug1]: https://medium.com/linum-labs/error-vm-exception-while-processing-transaction-revert-8cd856633793
 [truffleflatten]: https://www.npmjs.com/package/truffle-flattener
-
+[aaveflashloan]: https://www.quicknode.com/guides/defi/how-to-make-a-flash-loan-using-aave
