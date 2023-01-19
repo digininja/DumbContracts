@@ -105,13 +105,13 @@ Trying to work out how to access a contract by address from inside truffle. Usin
 
 [Some useful stuff here][developDeploy]
 
-## Decompile
-
-### Tools
+## Tools
 
 * [Panoramix][panoramix]
 * [dedaub][dedaub]
 * [ethervm][ethervm]
+* [Truffle Flattener][truffleflatten] - Squashes a Truffle project down into a single file to make debugging easier
+* [vim-solidity][vimsolidity] - Vim Plugin
 
 ## Install
 
@@ -128,28 +128,19 @@ Now install Ganache and Truffle
 sudo npm install -g ganache truffle
 ```
 
-### Vim Plugin
-
-[vim-solidity][vimsolidity]
-
-### Tutorials
+## Tutorials and useful stuff
 
 * [REVERSE ENGINEERING A CONTRACT][rev1]
 * [Debugging Contracts][debug1]
-
-## Useful links
-
-[A good video on setting up VS Code][vscodelink]
-
-[Some example code][byexample]
+* [A good video on setting up VS Code][vscodelink]
+* [Some example code][byexample]
+* [Flash load code example][aaveflashloan]
 
 Three ways to send cash, [this paper][transfer] talks about them and the security problems with them.
 
-[Calling other contracts][calling].
-
-[Video on using encoding methods][videoEncoding].
-
-[Video workshop on decompiling contracts][videoDecompileWorkshop].
+* [Calling other contracts][calling].
+* [Video on using encoding methods][videoEncoding].
+* [Video workshop on decompiling contracts][videoDecompileWorkshop].
 
 [byexample]: https://solidity-by-example.org/sending-ether/
 [vscodelink]: https://www.youtube.com/watch?v=tcnpGeOiA_
@@ -164,3 +155,5 @@ Three ways to send cash, [this paper][transfer] talks about them and the securit
 [developDeploy]: https://blog.logrocket.com/truffle-suite-tutorial-develop-ethereum-smart-contracts/
 [vimsolidity]: https://github.com/tomlion/vim-solidity
 [debug1]: https://medium.com/linum-labs/error-vm-exception-while-processing-transaction-revert-8cd856633793
+[truffleflatten]: https://www.npmjs.com/package/truffle-flattener
+[aaveflashloan]: https://www.quicknode.com/guides/defi/how-to-make-a-flash-loan-using-aave
