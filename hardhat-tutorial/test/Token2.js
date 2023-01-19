@@ -1,7 +1,7 @@
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 const { expect } = require("chai");
 
-describe("Token contract", function () {
+describe("Token contract test 2", function () {
   async function deployTokenFixture() {
     const Token = await ethers.getContractFactory("Token");
     const [owner, addr1, addr2] = await ethers.getSigners();
@@ -14,14 +14,14 @@ describe("Token contract", function () {
     return { Token, hardhatToken, owner, addr1, addr2 };
   }
 
-  it("2. Should assign the total supply of tokens to the owner", async function () {
+  it("Should assign the total supply of tokens to the owner", async function () {
     const { hardhatToken, owner } = await loadFixture(deployTokenFixture);
 
     const ownerBalance = await hardhatToken.balanceOf(owner.address);
     expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
   });
 
-  it("2. Should transfer tokens between accounts", async function () {
+  it("Should transfer tokens between accounts", async function () {
     const { hardhatToken, owner, addr1, addr2 } = await loadFixture(
       deployTokenFixture
     );
